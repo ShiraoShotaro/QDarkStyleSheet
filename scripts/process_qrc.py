@@ -153,7 +153,7 @@ def run_process(args):
         if args.create in ['pyside2', 'all']:
             print("Compiling for PySide 2...")
             try:
-                call(['pyside2-rcc', '-py3', qrc_file, '-o', py_file_pyside2])
+                call(['pyside2-rcc', '-o', py_file_pyside2, qrc_file])
             except FileNotFoundError:
                 print("You must install pyside2-rcc")
 

@@ -13,9 +13,9 @@ import re
 import tempfile
 
 # Third party imports
-from qtpy.QtCore import QSize
-from qtpy.QtGui import QIcon
-from qtpy.QtWidgets import QApplication
+from PySide2.QtCore import QSize
+from PySide2.QtGui import QIcon
+from PySide2.QtWidgets import QApplication
 
 # Local imports
 from qdarkstyle import (IMAGES_PATH, STYLES_SCSS_FILEPATH, QRC_FILEPATH, RC_PATH,
@@ -95,6 +95,7 @@ def convert_svg_to_png(svg_path, png_path, height, width):
     img = pixmap.toImage()
     img.save(png_path)
 
+test_app = None
 
 def create_palette_image(base_svg_path=SVG_PATH, path=IMAGES_PATH,
                          palette=DarkPalette):
@@ -102,7 +103,9 @@ def create_palette_image(base_svg_path=SVG_PATH, path=IMAGES_PATH,
     Create palette image svg and png image on specified path.
     """
     # Needed to use QPixmap
-    _ = QApplication([])
+    global test_app
+    if test_app is None:
+        test_app = QApplication([])
 
     base_palette_svg_path = os.path.join(base_svg_path, 'base_palette.svg')
     palette_svg_path = os.path.join(path, 'palette.svg')
@@ -144,7 +147,9 @@ def create_images(base_svg_path=SVG_PATH, rc_path=RC_PATH,
     """
 
     # Needed to use QPixmap
-    _ = QApplication([])
+    global test_app
+    if test_app is None:
+        test_app = QApplication([])
 
     temp_dir = tempfile.mkdtemp()
     svg_fnames = [f for f in os.listdir(base_svg_path) if f.endswith('.svg')]

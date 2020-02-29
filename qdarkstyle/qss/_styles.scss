@@ -13,15 +13,15 @@ See Qt documentation:
 
 --------------------------------------------------------------------------- */
 QWidget {
-    background-color: $COLOR_BACKGROUND_DARK;
-    border: 0px solid $COLOR_BACKGROUND_NORMAL;
+    background-color: $COLOR_BACKGROUND_NORMAL;
+    border: none;
     padding: 0px;
     color: $COLOR_FOREGROUND_LIGHT;
     selection-background-color: $COLOR_SELECTION_NORMAL;
     selection-color: $COLOR_FOREGROUND_LIGHT;
 
     &:disabled {
-        background-color: $COLOR_BACKGROUND_DARK;
+        background-color: $COLOR_BACKGROUND_NORMAL;
         color: $COLOR_FOREGROUND_DARK;
         selection-background-color: $COLOR_SELECTION_DARK;
         selection-color: $COLOR_FOREGROUND_DARK;
@@ -35,7 +35,7 @@ QWidget {
 
         &:hover {
             background-color: $COLOR_SELECTION_LIGHT;
-            color: $COLOR_BACKGROUND_NORMAL;
+            color: $COLOR_FOREGROUND_LIGHT;
         }
     }
 }
@@ -50,7 +50,7 @@ QMainWindow {
 
     &::separator {
         background-color: $COLOR_BACKGROUND_NORMAL;
-        border: 0px solid $COLOR_BACKGROUND_DARK;
+        border: none;
         spacing: 0px;
         padding: 2px;
 
@@ -131,7 +131,7 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qcheckbox
 
 --------------------------------------------------------------------------- */
 QCheckBox {
-    background-color: $COLOR_BACKGROUND_DARK;
+    background-color: $COLOR_BACKGROUND_NORMAL;
     color: $COLOR_FOREGROUND_LIGHT;
     spacing: 4px;
     outline: none;
@@ -261,7 +261,7 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qradiobutton
 
 --------------------------------------------------------------------------- */
 QRadioButton {
-    background-color: $COLOR_BACKGROUND_DARK;
+    background-color: $COLOR_BACKGROUND_NORMAL;
     color: $COLOR_FOREGROUND_LIGHT;
     spacing: 4px;
     padding: 0px;
@@ -340,7 +340,7 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qmenubar
 QMenuBar {
     background-color: $COLOR_BACKGROUND_NORMAL;
     padding: 2px;
-    border: $BORDER_DARK;
+    border: none;
     color: $COLOR_FOREGROUND_LIGHT;
 
     &:focus {
@@ -349,16 +349,16 @@ QMenuBar {
 
     &::item {
         background: transparent;
-        padding: 4px;
+        padding: 2px;
 
         &:selected {
-            padding: 4px;
+            padding: 2px;
             background: transparent;
             border: 0px solid $COLOR_BACKGROUND_NORMAL;
         }
 
         &:pressed {
-            padding: 4px;
+            padding: 2px;
             border: 0px solid $COLOR_BACKGROUND_NORMAL;
             background-color: $COLOR_SELECTION_LIGHT;
             color: $COLOR_FOREGROUND_LIGHT;
@@ -725,7 +725,6 @@ QSizeGrip {
 QStackedWidget {
     padding: 2px;
     border: $BORDER_NORMAL;
-    border: $BORDER_DARK;
 }
 
 /* QToolBar ---------------------------------------------------------------
@@ -885,7 +884,7 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qframe
 
 --------------------------------------------------------------------------- */
 QLabel {
-    background-color: $COLOR_BACKGROUND_DARK;
+    background-color: $COLOR_BACKGROUND_NORMAL;
     border: 0px solid $COLOR_BACKGROUND_NORMAL;
     padding: 2px;
     margin: 0px;
@@ -1020,8 +1019,8 @@ QPushButton {
     background-color: $COLOR_BACKGROUND_LIGHT;
     border: $BORDER_NORMAL;
     color: $COLOR_FOREGROUND_LIGHT;
-    border-radius: $SIZE_BORDER_RADIUS;
-    padding: 3px;
+    border-radius: 1px;
+    padding: 5px;
     outline: none;
     /* Issue #194 - Special case of QPushButton inside dialogs, for better UI */
     min-width: 80px;
@@ -1035,7 +1034,7 @@ QPushButton {
     }
 
     &:checked {
-        background-color: $COLOR_BACKGROUND_NORMAL;
+        background-color: $COLOR_SELECTION_NORMAL;
         border: $BORDER_NORMAL;
         border-radius: $SIZE_BORDER_RADIUS;
         padding: 3px;
@@ -1051,8 +1050,12 @@ QPushButton {
         }
 
         &:selected {
-            background: $COLOR_SELECTION_NORMAL;
+            background-color: $COLOR_SELECTION_NORMAL;
             color: $COLOR_BACKGROUND_NORMAL;
+        }
+
+        &:hover {
+            background-color: $COLOR_SELECTION_LIGHT !important;
         }
 
     }
@@ -1068,27 +1071,19 @@ QPushButton {
         border: $BORDER_DARK;
 
         &:hover {
-            border: $BORDER_SELECTION_LIGHT;
+            background-color: $COLOR_BACKGROUND_DARK;
         }
     }
 
     &:hover {
-        border: $BORDER_SELECTION_LIGHT;
+        border: none;
         color: $COLOR_FOREGROUND_LIGHT;
+        background-color: #707070;
     }
 
     &:selected {
         background: $COLOR_SELECTION_NORMAL;
         color: $COLOR_BACKGROUND_NORMAL;
-    }
-
-    &:hover {
-        border: $BORDER_SELECTION_LIGHT;
-        color: $COLOR_FOREGROUND_LIGHT;
-    }
-
-    &:focus {
-        border: $BORDER_SELECTION_NORMAL;
     }
 
 }
@@ -1504,11 +1499,11 @@ QTabBar {
     border-radius: $SIZE_BORDER_RADIUS;
     margin: 0px;
     padding: 2px;
-    border: 0;
+    border: none;
     /* left: 5px; move to the right by 5px - removed for fix */
 
     &::close-button {
-        border: 0;
+        border: none;
         margin: 2px;
         padding: 2px;
 
@@ -1584,22 +1579,22 @@ QTabBar {
 
         /* selected ------------------------------------------------------- */
         &:top:!selected {
-            border-bottom: 2px solid $COLOR_BACKGROUND_DARK;
+            border-bottom: 3px solid $COLOR_BACKGROUND_DARK;
             margin-top: 2px;
         }
 
         &:bottom:!selected {
-            border-top: 2px solid $COLOR_BACKGROUND_DARK;
+            border-top: 3px solid $COLOR_BACKGROUND_DARK;
             margin-bottom: 3px;
         }
 
         &:left:!selected {
-            border-left: 2px solid $COLOR_BACKGROUND_DARK;
+            border-left: 3px solid $COLOR_BACKGROUND_DARK;
             margin-right: 2px;
         }
 
         &:right:!selected {
-            border-right: 2px solid $COLOR_BACKGROUND_DARK;
+            border-right: 3px solid $COLOR_BACKGROUND_DARK;
             margin-left: 2px;
         }
 
@@ -1607,30 +1602,22 @@ QTabBar {
             background-color: $COLOR_BACKGROUND_NORMAL;
             color: $COLOR_FOREGROUND_LIGHT;
             margin-left: 2px;
-            padding-left: 4px;
-            padding-right: 4px;
-            padding-top: 2px;
-            padding-bottom: 2px;
+            padding: 3px 10px 2px;
             min-width: 5px;
-            border-bottom: 3px solid $COLOR_BACKGROUND_NORMAL;
-            border-top-left-radius: 3px;
-            border-top-right-radius: 3px;
+            border-bottom: 3px solid $COLOR_BACKGROUND_DARK;
+            border-top-left-radius: 2px;
+            border-top-right-radius: 2px;
 
             &:selected {
                 background-color: $COLOR_BACKGROUND_LIGHT;
                 color: $COLOR_FOREGROUND_LIGHT;
                 border-bottom: 3px solid $COLOR_SELECTION_NORMAL;
-                border-top-left-radius: 3px;
-                border-top-right-radius: 3px;
             }
 
             &:!selected:hover {
-                border: $BORDER_SELECTION_LIGHT;
-                border-bottom: 3px solid $COLOR_SELECTION_LIGHT;
-
-                /* Fixes spyder-ide/spyder#9766 */
-                padding-left: 4px;
-                padding-right: 4px;
+                /* border: $BORDER_SELECTION_LIGHT;
+                border-bottom: 3px solid $COLOR_SELECTION_LIGHT; */
+                background-color: #707070;
             }
         }
 
@@ -1759,7 +1746,7 @@ QTabBar {
 --------------------------------------------------------------------------- */
 QDockWidget {
     outline: $BORDER_NORMAL;
-    background-color: $COLOR_BACKGROUND_DARK;
+    background-color: $COLOR_BACKGROUND_NORMAL;
     border: $BORDER_NORMAL;
     border-radius: $SIZE_BORDER_RADIUS;
     titlebar-close-icon: url($PATH_RESOURCES + '/rc/window_close.png');
@@ -1772,7 +1759,7 @@ QDockWidget {
         padding: 6px;
         spacing: 4px;
         border: none;
-        background-color: $COLOR_BACKGROUND_NORMAL;
+        background-color: $COLOR_BACKGROUND_LIGHT;
     }
 
     &::close-button {
@@ -1927,8 +1914,8 @@ QColumnView {
         &:selected {
 
             &:hover {
-                background: $COLOR_SELECTION_NORMAL;
-                color: $COLOR_BACKGROUND_DARK;
+                background-color: $COLOR_SELECTION_NORMAL;
+                color: $COLOR_FOREGROUND_LIGHT;
             }
 
             &:active {
@@ -1940,7 +1927,7 @@ QColumnView {
 
             &:hover {
                 outline: 0;
-                color: $COLOR_SELECTION_LIGHT;
+                color: $COLOR_FOREGROUND_LIGHT;
                 background-color: $COLOR_BACKGROUND_NORMAL;
             }
         }
@@ -1961,20 +1948,20 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qheaderview
 
 --------------------------------------------------------------------------- */
 QHeaderView {
-    background-color: $COLOR_BACKGROUND_NORMAL;
+    background-color: $COLOR_BACKGROUND_LIGHT;
     border: 0px transparent $COLOR_BACKGROUND_NORMAL;
     padding: 0px;
     margin: 0px;
     border-radius: 0px;
 
     &:disabled {
-        background-color: $COLOR_BACKGROUND_NORMAL;
+        background-color: $COLOR_BACKGROUND_LIGHT;
         border: 1px transparent $COLOR_BACKGROUND_NORMAL;
         padding: 2px;
     }
 
     &::section {
-        background-color: $COLOR_BACKGROUND_NORMAL;
+        background-color: $COLOR_BACKGROUND_LIGHT;
         color: $COLOR_FOREGROUND_LIGHT;
         padding: 2px;
         border-radius: 0px;
@@ -1997,7 +1984,7 @@ QHeaderView {
 
             &::first,
             &::only-one {
-                border-left: $BORDER_NORMAL;
+                border-left: none;
             }
 
             &:disabled {
@@ -2012,7 +1999,7 @@ QHeaderView {
 
             &::first,
             &::only-one {
-                border-top: $BORDER_NORMAL;
+                border-top: none;
             }
 
             &:disabled {
@@ -2153,7 +2140,7 @@ QSplitter {
 
     &::handle {
         background-color: $COLOR_BACKGROUND_NORMAL;
-        border: 0px solid $COLOR_BACKGROUND_DARK;
+        border: none;
         spacing: 0px;
         padding: 1px;
         margin: 0px;

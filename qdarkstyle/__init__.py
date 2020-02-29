@@ -219,13 +219,16 @@ def _load_stylesheet(qt_api=''):
     package_dir = os.path.basename(PACKAGE_PATH)
     qss_rc_path = ":" + os.path.join(package_dir, QSS_FILE)
 
-    _logger.debug("Reading QSS file in: %s" % qss_rc_path)
+    _logger.debug("Reading QSS file in: %s" % os.path.join(PACKAGE_PATH, QSS_FILE))
 
     # It gets the qss file from compiled style_rc that was import
     # not from the file QSS as we are using resources
     qss_file = QFile(qss_rc_path)
 
-    if qss_file.exists():
+    if True:
+        with open(os.path.join(PACKAGE_PATH, QSS_FILE), mode="r", encoding="utf-8") as f:
+            stylesheet = f.read()
+    elif qss_file.exists():
         qss_file.open(QFile.ReadOnly | QFile.Text)
         text_stream = QTextStream(qss_file)
         stylesheet = text_stream.readAll()
