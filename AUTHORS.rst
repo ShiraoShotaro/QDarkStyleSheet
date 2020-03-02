@@ -1,5 +1,8 @@
-Authors
-=======
+Modified by Shotaro Shirao.
+
+
+QDarkStylesheet's Authors
+=========================
 
 Mainteiner(s)
 -------------

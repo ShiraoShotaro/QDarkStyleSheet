@@ -1,3 +1,10 @@
+Maya-like QDarkStyleSheet
+=========================
+
+Forked from QDarkStylesheet.
+Work in progress.
+
+
 QDarkStylesheet
 ===============
 

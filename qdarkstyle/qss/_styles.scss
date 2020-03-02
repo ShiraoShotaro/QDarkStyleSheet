@@ -349,16 +349,14 @@ QMenuBar {
 
     &::item {
         background: transparent;
-        padding: 2px;
+        padding: 2px 6px;
 
         &:selected {
-            padding: 2px;
             background: transparent;
             border: 0px solid $COLOR_BACKGROUND_NORMAL;
         }
 
         &:pressed {
-            padding: 2px;
             border: 0px solid $COLOR_BACKGROUND_NORMAL;
             background-color: $COLOR_SELECTION_LIGHT;
             color: $COLOR_FOREGROUND_LIGHT;

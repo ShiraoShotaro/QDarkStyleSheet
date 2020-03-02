@@ -1,0 +1,1 @@
+laser\Lib\site-packages\PySide2\designer.exe
